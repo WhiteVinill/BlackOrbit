@@ -1,0 +1,55 @@
+def add(x, y)
+  x + y
+end
+
+def subtract(x, y)
+  x - y
+end
+
+def multiply(x, y)
+  x * y
+end
+
+def divide(x, y)
+  if y != 0
+    x / y
+  else
+    "Error: Division by zero!"
+  end
+end
+
+puts "Welcome to the Ruby Calculator!"
+
+loop do
+  puts "Please select an operation:"
+  puts "1. Add"
+  puts "2. Subtract"
+  puts "3. Multiply"
+  puts "4. Divide"
+  puts "5. Quit"
+
+  choice = gets.chomp.to_i
+
+  if choice >= 1 && choice <= 4
+    puts "Enter first number:"
+    num1 = gets.chomp.to_f
+    puts "Enter second number:"
+    num2 = gets.chomp.to_f
+
+    case choice
+    when 1
+      puts "Result: #{add(num1, num2)}"
+    when 2
+      puts "Result: #{subtract(num1, num2)}"
+    when 3
+      puts "Result: #{multiply(num1, num2)}"
+    when 4
+      puts "Result: #{divide(num1, num2)}"
+    end
+  elsif choice == 5
+    puts "Thank you for using the Ruby Calculator!"
+    break
+  else
+    puts "Invalid choice. Please select a valid operation."
+  end
+end
